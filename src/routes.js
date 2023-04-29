@@ -1,19 +1,21 @@
 const express = require("express");
+// express => biblioteca para criar servidor
 const routes = express.Router();
+// função do express para criar as rotas
 
-const basePath = __dirname + "/views";
+const views = __dirname + "/views/";
 
 routes.get("/", (req, res) => {
-  return res.sendFile(basePath + "/index.html");
+  return res.render(views + "index");
 });
 routes.get("/job", (req, res) => {
-  return res.sendFile(basePath + "/job.html");
+  return res.render(views + "job");
 });
 routes.get("/job/edit", (req, res) => {
-  return res.sendFile(basePath + "/job-edit.html");
+  return res.render(views + "job-edit");
 });
 routes.get("/profile", (req, res) => {
-  return res.sendFile(basePath + "/profile.html");
+  return res.render(views + "profile");
 });
 
 module.exports = routes;
